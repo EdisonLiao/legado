@@ -1,4 +1,4 @@
-package io.legado.app
+package com.edison.ebookpub
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

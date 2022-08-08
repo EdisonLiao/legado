@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <io.legado.app.ui.widget.TitleBar
+    <com.edison.ebookpub.ui.widget.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@id/title_bar"
         app:layout_constraintBottom_toTopOf="@id/select_action_bar" />
 
-    <io.legado.app.ui.widget.SelectActionBar
+    <com.edison.ebookpub.ui.widget.SelectActionBar
         android:id="@+id/select_action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

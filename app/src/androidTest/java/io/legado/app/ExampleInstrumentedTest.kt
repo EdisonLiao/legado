@@ -1,4 +1,4 @@
-package io.legado.app
+package com.edison.ebookpub
 
 import android.net.Uri
 import android.util.Log
@@ -19,7 +19,7 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         Log.d("test",
-            appContext.contentResolver.query(Uri.parse("content://io.legado.app.api.ReaderProvider/sources/query"),null,null,null,null)
+            appContext.contentResolver.query(Uri.parse("content://com.edison.ebookpub.api.ReaderProvider/sources/query"),null,null,null,null)
                 !!.getString(0)
         )
           }

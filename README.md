@@ -51,10 +51,10 @@ Legado is a free and open source novel reader for Android.
 #### Android-安卓 
 * [Releases](https://github.com/gedoor/legado/releases/latest)
 * [Google play - $1.99](https://play.google.com/store/apps/details?id=io.legado.play.release)
-* [Coolapk](https://www.coolapk.com/apk/io.legado.app.release)
+* [Coolapk](https://www.coolapk.com/apk/com.edison.ebookpub.release)
 * [Jsdelivr](https://cdn.jsdelivr.net/gh/gedoor/release@release/)
 * [\#Beta](https://kunfei.lanzoui.com/b0f810h4b)
-* [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/io.legado.app.release)
+* [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/com.edison.ebookpub.release)
 
 
 #### IOS-苹果

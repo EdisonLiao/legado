@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <io.legado.app.ui.widget.TitleBar
+    <com.edison.ebookpub.ui.widget.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,21 +19,21 @@
         android:orientation="horizontal"
         android:layout_gravity="center_vertical">
 
-        <io.legado.app.lib.theme.view.ThemeCheckBox
+        <com.edison.ebookpub.lib.theme.view.ThemeCheckBox
             android:id="@+id/cb_is_enable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/is_enable" />
 
-        <io.legado.app.lib.theme.view.ThemeCheckBox
+        <com.edison.ebookpub.lib.theme.view.ThemeCheckBox
             android:id="@+id/cb_is_enable_find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/discovery" />
 
-        <io.legado.app.lib.theme.view.ThemeCheckBox
+        <com.edison.ebookpub.lib.theme.view.ThemeCheckBox
             android:id="@+id/cb_is_enable_cookie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

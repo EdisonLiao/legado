@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <io.legado.app.ui.widget.text.InertiaScrollTextView
+    <com.edison.ebookpub.ui.widget.text.InertiaScrollTextView
         android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +13,7 @@
         android:textColor="@color/secondaryText"
         android:textIsSelectable="true" />
 
-    <io.legado.app.ui.widget.text.BadgeView
+    <com.edison.ebookpub.ui.widget.text.BadgeView
         android:id="@+id/badge_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package io.legado.app
+package com.edison.ebookpub
 
 import androidx.room.Room
 import androidx.room.migration.Migration
@@ -6,7 +6,7 @@ import androidx.room.testing.MigrationTestHelper
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
-import io.legado.app.data.AppDatabase
+import com.edison.ebookpub.data.AppDatabase
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

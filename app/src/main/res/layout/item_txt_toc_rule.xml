@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical">
 
-        <io.legado.app.lib.theme.view.ThemeCheckBox
+        <com.edison.ebookpub.lib.theme.view.ThemeCheckBox
             android:id="@+id/cb_source"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:textColor="@color/primaryText"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
-        <io.legado.app.lib.theme.view.ThemeSwitch
+        <com.edison.ebookpub.lib.theme.view.ThemeSwitch
             android:id="@+id/swt_enabled"
             android:name="@string/enable"
             android:layout_width="wrap_content"

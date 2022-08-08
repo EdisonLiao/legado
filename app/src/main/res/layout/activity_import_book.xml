@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <io.legado.app.ui.widget.TitleBar
+    <com.edison.ebookpub.ui.widget.TitleBar
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:textSize="13sp"
             tools:text="/" />
 
-        <io.legado.app.ui.widget.text.StrokeTextView
+        <com.edison.ebookpub.ui.widget.text.StrokeTextView
             android:id="@+id/tv_go_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
 
-    <io.legado.app.ui.widget.anima.RefreshProgressBar
+    <com.edison.ebookpub.ui.widget.anima.RefreshProgressBar
         android:id="@+id/refresh_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -65,7 +65,7 @@
         app:layout_constraintBottom_toTopOf="@id/select_action_bar"
         app:layout_constraintTop_toBottomOf="@id/refresh_progress_bar">
 
-        <io.legado.app.ui.widget.recycler.scroller.FastScrollRecyclerView
+        <com.edison.ebookpub.ui.widget.recycler.scroller.FastScrollRecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -84,7 +84,7 @@
 
     </FrameLayout>
 
-    <io.legado.app.ui.widget.SelectActionBar
+    <com.edison.ebookpub.ui.widget.SelectActionBar
         android:id="@+id/select_action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

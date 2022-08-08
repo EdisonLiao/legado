@@ -15,7 +15,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:titleTextAppearance="@style/ToolbarTitle" />
 
-    <io.legado.app.lib.theme.view.ThemeEditText
+    <com.edison.ebookpub.lib.theme.view.ThemeEditText
         android:id="@+id/content_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

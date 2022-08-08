@@ -19,7 +19,7 @@ def gitCommits = Integer.parseInt('git rev-list HEAD --count'.execute().text.tri
 android {
     compileSdkVersion 32
     buildToolsVersion "32.0.0"
-    namespace 'io.legado.app'
+    namespace 'com.edison.ebookpub'
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -39,7 +39,7 @@ android {
         }
     }
     defaultConfig {
-        applicationId "io.legado.app"
+        applicationId "com.edison.ebookpub"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 10000 + gitCommits
