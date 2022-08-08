@@ -31,27 +31,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:ems="1"
-            android:text="阅读"
+            android:text="@string/app_name"
             android:textSize="49sp"
-            app:layout_constraintRight_toLeftOf="@+id/tv_sub_title"
+            android:ems="1"
             app:layout_constraintLeft_toRightOf="@+id/vw_title_line"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText,RtlHardcoded" />
-
-        <com.edison.ebookpub.ui.widget.text.AccentTextView
-            android:id="@+id/tv_sub_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="6dp"
-            android:ems="1"
-            android:text="享受美好时光"
-            android:textSize="16sp"
-            app:layout_constraintTop_toTopOf="@+id/tv_title"
-            app:layout_constraintLeft_toRightOf="@id/tv_title"
-            tools:ignore="HardcodedText,RtlHardcoded" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -59,24 +44,12 @@
         android:id="@+id/iv_book"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="32dp"
-        android:src="@drawable/icon_read_book"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="50dp"
         android:scaleType="fitCenter"
         android:contentDescription="@string/welcome"
-        app:layout_constraintBottom_toTopOf="@+id/tv_gzh"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <com.edison.ebookpub.ui.widget.text.AccentTextView
-        android:id="@+id/tv_gzh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="关注公众号[开源阅读]\n看文章点广告支持作者"
-        android:layout_marginBottom="32dp"
-        android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
