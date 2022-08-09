@@ -5,9 +5,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,7 @@ import com.edison.ebookpub.lib.theme.primaryColor
 import com.edison.ebookpub.lib.theme.primaryTextColor
 import com.edison.ebookpub.ui.book.explore.ExploreShowActivity
 import com.edison.ebookpub.ui.book.source.edit.BookSourceEditActivity
+import com.edison.ebookpub.ui.widget.dialog.WaitDialog
 import com.edison.ebookpub.utils.*
 import com.edison.ebookpub.utils.viewbindingdelegate.viewBinding
 import kotlinx.coroutines.CoroutineScope
@@ -30,6 +33,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.launch
+import okhttp3.internal.wait
 
 /**
  * 发现界面
@@ -55,6 +59,7 @@ class ExploreFragment : VMBaseFragment<ExploreViewModel>(R.layout.fragment_explo
         initRecyclerView()
         initGroupData()
         upExploreData()
+        initLocalBookSource()
     }
 
     override fun onCompatCreateOptionsMenu(menu: Menu) {
@@ -181,6 +186,22 @@ class ExploreFragment : VMBaseFragment<ExploreViewModel>(R.layout.fragment_explo
 
     override fun toTop(source: BookSource) {
         viewModel.topSource(source)
+    }
+
+    private fun initLocalBookSource() {
+        if (viewModel.getAllBookCount() <= 0) {
+            viewModel.initLocalBookSource()
+            val waitDialog = WaitDialog(requireContext())
+            waitDialog.show()
+            viewModel.initLocalSourceDoneLiveData.observe(this, Observer { ret ->
+                waitDialog.dismiss()
+            })
+
+            viewModel.errorLiveData.observe(this, Observer {
+                waitDialog.dismiss()
+                Toast.makeText(requireContext(),getString(R.string.load_local_book_source_fail),Toast.LENGTH_SHORT).show()
+            })
+        }
     }
 
     fun compressExplore() {

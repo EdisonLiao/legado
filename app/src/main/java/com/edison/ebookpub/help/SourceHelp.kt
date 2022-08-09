@@ -1,16 +1,21 @@
 package com.edison.ebookpub.help
 
+import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import com.edison.ebookpub.data.appDb
 import com.edison.ebookpub.data.entities.BookSource
 import com.edison.ebookpub.data.entities.RssSource
 import com.edison.ebookpub.help.config.AppConfig
+import com.edison.ebookpub.help.http.cronet.CronetLoader
 import com.edison.ebookpub.utils.EncoderUtils
 import com.edison.ebookpub.utils.NetworkUtils
 import com.edison.ebookpub.utils.splitNotBlank
 import com.edison.ebookpub.utils.toastOnUi
+import org.json.JSONObject
 import splitties.init.appCtx
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 object SourceHelp {
 
@@ -38,13 +43,7 @@ object SourceHelp {
 
     fun insertBookSource(vararg bookSources: BookSource) {
         bookSources.forEach { bookSource ->
-            if (is18Plus(bookSource.bookSourceUrl)) {
-                handler.post {
-                    appCtx.toastOnUi("${bookSource.bookSourceName}是18+网址,禁止导入.")
-                }
-            } else {
-                appDb.bookSourceDao.insert(bookSource)
-            }
+            appDb.bookSourceDao.insert(bookSource)
         }
     }
 
@@ -64,6 +63,27 @@ object SourceHelp {
         } catch (e: Exception) {
         }
         return false
+    }
+
+    suspend fun readAssetsJsonFile(ctx: Context,fileName: String): String{
+        val stringBuilder = StringBuilder()
+        return try {
+            //获取assets资源管理器
+            val assetManager = ctx.assets
+            //通过管理器打开文件并读取
+            val bf = BufferedReader(
+                InputStreamReader(
+                    assetManager.open(fileName)
+                )
+            )
+            var line: String?
+            while (bf.readLine().also { line = it } != null) {
+                stringBuilder.append(line)
+            }
+            stringBuilder.toString()
+        } catch (e: java.lang.Exception) {
+            return ""
+        }
     }
 
 }
