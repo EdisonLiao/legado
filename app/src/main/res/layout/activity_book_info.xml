@@ -193,17 +193,6 @@
                             tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry"
                             tools:text="@string/origin_format" />
 
-                        <com.edison.ebookpub.ui.widget.text.AccentBgTextView
-                            android:id="@+id/tv_change_source"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:textSize="13sp"
-                            android:text="@string/change_origin"
-                            app:radius="2dp" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -272,17 +261,6 @@
                             tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry"
                             tools:text="@string/group_s" />
 
-                        <com.edison.ebookpub.ui.widget.text.AccentBgTextView
-                            android:id="@+id/tv_change_group"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:text="@string/change_group"
-                            android:textSize="13sp"
-                            app:radius="2dp" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -315,17 +293,6 @@
                             android:textSize="13sp"
                             tools:ignore="NestedWeights,RtlHardcoded,RtlSymmetry"
                             tools:text="@string/toc_s" />
-
-                        <com.edison.ebookpub.ui.widget.text.AccentBgTextView
-                            android:id="@+id/tv_toc_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:text="@string/view_toc"
-                            android:textSize="13sp"
-                            app:radius="2dp" />
 
                     </LinearLayout>
 

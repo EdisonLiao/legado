@@ -190,16 +190,19 @@ class ExploreFragment : VMBaseFragment<ExploreViewModel>(R.layout.fragment_explo
 
     private fun initLocalBookSource() {
         if (viewModel.getAllBookCount() <= 0) {
-            viewModel.initLocalBookSource()
+            viewModel.initLocalBookSource("local_booksource1.json")
             val waitDialog = WaitDialog(requireContext())
             waitDialog.show()
             viewModel.initLocalSourceDoneLiveData.observe(this, Observer { ret ->
-                waitDialog.dismiss()
+                if (waitDialog.isShowing) {
+                    waitDialog.dismiss()
+                }
             })
 
             viewModel.errorLiveData.observe(this, Observer {
-                waitDialog.dismiss()
-                Toast.makeText(requireContext(),getString(R.string.load_local_book_source_fail),Toast.LENGTH_SHORT).show()
+                if (waitDialog.isShowing) {
+                    waitDialog.dismiss()
+                }
             })
         }
     }

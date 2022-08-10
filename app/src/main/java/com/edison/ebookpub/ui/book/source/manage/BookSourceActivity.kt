@@ -113,9 +113,6 @@ class BookSourceActivity : VMBaseActivity<ActivityBookSourceBinding, BookSourceV
         initLiveDataGroup()
         initSelectActionBar()
         resumeCheckSource()
-        if (!LocalConfig.bookSourcesHelpVersionIsLast) {
-            showHelp()
-        }
     }
 
     override fun onCompatCreateOptionsMenu(menu: Menu): Boolean {
@@ -189,7 +186,6 @@ class BookSourceActivity : VMBaseActivity<ActivityBookSourceBinding, BookSourceV
             R.id.menu_group_null -> {
                 searchView.setQuery(getString(R.string.no_group), true)
             }
-            R.id.menu_help -> showHelp()
         }
         if (item.groupId == R.id.source_group) {
             searchView.setQuery("group:${item.title}", true)
@@ -289,11 +285,6 @@ class BookSourceActivity : VMBaseActivity<ActivityBookSourceBinding, BookSourceV
                 delay(500)
             }
         }
-    }
-
-    private fun showHelp() {
-        val text = String(assets.open("help/SourceMBookHelp.md").readBytes())
-        showDialogFragment(TextDialog(text, TextDialog.Mode.MD))
     }
 
     private fun sortCheck(sort: Sort) {

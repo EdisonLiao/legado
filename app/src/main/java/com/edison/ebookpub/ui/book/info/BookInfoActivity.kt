@@ -113,7 +113,6 @@ class BookInfoActivity :
     }
 
     override fun onCompatCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.book_info, menu)
         return super.onCompatCreateOptionsMenu(menu)
     }
 
@@ -337,29 +336,7 @@ class BookInfoActivity :
                 }
             } ?: toastOnUi("Book is null")
         }
-        tvChangeSource.setOnClickListener {
-            viewModel.bookData.value?.let { book ->
-                showDialogFragment(ChangeBookSourceDialog(book.name, book.author))
-            } ?: toastOnUi("Book is null")
-        }
-        tvTocView.setOnClickListener {
-            if (!viewModel.inBookshelf) {
-                viewModel.saveBook(viewModel.bookData.value) {
-                    viewModel.saveChapterList {
-                        openChapterList()
-                    }
-                }
-            } else {
-                openChapterList()
-            }
-        }
-        tvChangeGroup.setOnClickListener {
-            viewModel.bookData.value?.let {
-                showDialogFragment(
-                    GroupSelectDialog(it.group)
-                )
-            } ?: toastOnUi("Book is null")
-        }
+
         tvAuthor.setOnClickListener {
             startActivity<SearchActivity> {
                 putExtra("key", viewModel.bookData.value?.author)

@@ -36,10 +36,10 @@ class ExploreViewModel(application: Application) : BaseViewModel(application) {
         }
     }
 
-    fun initLocalBookSource(){
+    fun initLocalBookSource(fileName: String){
         var bookJson = ""
         execute {
-            bookJson = SourceHelp.readAssetsJsonFile(getApplication(),"local_booksource1.json")
+            bookJson = SourceHelp.readAssetsJsonFile(getApplication(),fileName)
         }.onSuccess {
             importSource(bookJson)
         }

@@ -12,13 +12,6 @@
         android:icon="@drawable/ic_cfg_source"
         app:iconSpaceReserved="false" />
 
-    <com.edison.ebookpub.lib.prefs.Preference
-        android:key="replaceManage"
-        android:title="@string/replace_purify"
-        android:summary="@string/replace_purify_desc"
-        android:icon="@drawable/ic_cfg_replace"
-        app:iconSpaceReserved="false" />
-
     <com.edison.ebookpub.lib.prefs.NameListPreference
         android:defaultValue="0"
         android:entries="@array/theme_mode"
@@ -28,45 +21,6 @@
         android:summary="@string/theme_mode_desc"
         android:icon="@drawable/ic_cfg_theme"
         app:iconSpaceReserved="false" />
-
-    <com.edison.ebookpub.lib.prefs.SwitchPreference
-        android:defaultValue="false"
-        android:key="webService"
-        android:title="@string/web_service"
-        android:summary="@string/web_service_desc"
-        android:icon="@drawable/ic_cfg_web"
-        app:allowDividerBelow="false"
-        app:iconSpaceReserved="false" />
-
-    <com.edison.ebookpub.lib.prefs.PreferenceCategory
-        android:title="@string/setting"
-        app:allowDividerAbove="true"
-        app:allowDividerBelow="false"
-        app:iconSpaceReserved="false">
-
-        <com.edison.ebookpub.lib.prefs.Preference
-            android:key="web_dav_setting"
-            android:summary="@string/web_dav_set_import_old"
-            android:title="@string/backup_restore"
-            android:icon="@drawable/ic_cfg_backup"
-            app:iconSpaceReserved="false" />
-
-        <com.edison.ebookpub.lib.prefs.Preference
-            android:key="theme_setting"
-            android:summary="@string/theme_setting_s"
-            android:title="@string/theme_setting"
-            android:icon="@drawable/ic_cfg_theme"
-            app:iconSpaceReserved="false" />
-
-        <com.edison.ebookpub.lib.prefs.Preference
-            android:key="setting"
-            android:summary="@string/other_setting_s"
-            android:title="@string/other_setting"
-            android:icon="@drawable/ic_cfg_other"
-            app:allowDividerBelow="false"
-            app:iconSpaceReserved="false" />
-
-    </com.edison.ebookpub.lib.prefs.PreferenceCategory>
 
     <com.edison.ebookpub.lib.prefs.PreferenceCategory
         android:title="@string/other"
@@ -88,20 +42,6 @@
             android:title="@string/read_record"
             android:summary="@string/read_record_summary"
             android:icon="@drawable/ic_history"
-            app:iconSpaceReserved="false" />
-
-        <com.edison.ebookpub.lib.prefs.Preference
-            android:key="donate"
-            android:summary="@string/donate_summary"
-            android:title="@string/donate"
-            android:icon="@drawable/ic_cfg_donate"
-            app:iconSpaceReserved="false" />
-
-        <com.edison.ebookpub.lib.prefs.Preference
-            android:key="about"
-            android:summary="@string/about_summary"
-            android:title="@string/about"
-            android:icon="@drawable/ic_cfg_about"
             app:iconSpaceReserved="false" />
 
     </com.edison.ebookpub.lib.prefs.PreferenceCategory>

@@ -32,8 +32,7 @@ import com.edison.ebookpub.utils.viewbindingdelegate.viewBinding
  * 书架界面
  */
 class BookshelfFragment1 : BaseBookshelfFragment(R.layout.fragment_bookshelf),
-    TabLayout.OnTabSelectedListener,
-    SearchView.OnQueryTextListener {
+    TabLayout.OnTabSelectedListener{
 
     private val binding by viewBinding(FragmentBookshelfBinding::bind)
     private val adapter by lazy { TabFragmentPageAdapter(childFragmentManager) }
@@ -51,7 +50,6 @@ class BookshelfFragment1 : BaseBookshelfFragment(R.layout.fragment_bookshelf),
         }
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
-        setSupportToolbar(binding.titleBar.toolbar)
         initView()
         initBookGroupData()
     }
@@ -67,15 +65,6 @@ class BookshelfFragment1 : BaseBookshelfFragment(R.layout.fragment_bookshelf),
         tabLayout.setupWithViewPager(binding.viewPagerBookshelf)
         binding.viewPagerBookshelf.offscreenPageLimit = 1
         binding.viewPagerBookshelf.adapter = adapter
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        SearchActivity.start(requireContext(), query)
-        return false
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        return false
     }
 
     @Synchronized

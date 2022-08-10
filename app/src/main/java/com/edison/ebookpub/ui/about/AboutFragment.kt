@@ -50,23 +50,6 @@ class AboutFragment : PreferenceFragmentCompat() {
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        when (preference.key) {
-            "contributors" -> openUrl(R.string.contributors_url)
-            "update_log" -> show("updateLog.md")
-            "check_update" -> checkUpdate()
-            "mail" -> requireContext().sendMail(getString(R.string.email))
-            "sourceRuleSummary" -> openUrl(R.string.source_rule_url)
-            "git" -> openUrl(R.string.this_github_url)
-            "home_page" -> openUrl(R.string.home_page_url)
-            "license" -> openUrl(R.string.license_url)
-            "disclaimer" -> show("disclaimer.md")
-            "qq" -> showQqGroups()
-            "gzGzh" -> requireContext().sendToClip(getString(R.string.legado_gzh))
-            "crashLog" -> showCrashLogs()
-            "qqChannel" -> context?.openUrl(qqChannel)
-            "tg" -> openUrl(R.string.tg_url)
-            "discord" -> openUrl(R.string.discord_url)
-        }
         return super.onPreferenceTreeClick(preference)
     }
 
