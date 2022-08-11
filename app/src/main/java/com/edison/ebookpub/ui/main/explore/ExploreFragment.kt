@@ -13,14 +13,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.edison.ebookpub.BuildConfig
 import com.edison.ebookpub.R
 import com.edison.ebookpub.base.VMBaseFragment
 import com.edison.ebookpub.constant.AppLog
 import com.edison.ebookpub.constant.AppPattern
 import com.edison.ebookpub.data.appDb
 import com.edison.ebookpub.data.entities.BookSource
+import com.edison.ebookpub.databinding.AdNativeTemplateBinding
 import com.edison.ebookpub.databinding.FragmentExploreBinding
 import com.edison.ebookpub.help.config.AppConfig
+import com.edison.ebookpub.income.AdMgr
+import com.edison.ebookpub.income.IAdmobRequestListener
 import com.edison.ebookpub.lib.theme.primaryColor
 import com.edison.ebookpub.lib.theme.primaryTextColor
 import com.edison.ebookpub.ui.book.explore.ExploreShowActivity
@@ -28,6 +32,7 @@ import com.edison.ebookpub.ui.book.source.edit.BookSourceEditActivity
 import com.edison.ebookpub.ui.widget.dialog.WaitDialog
 import com.edison.ebookpub.utils.*
 import com.edison.ebookpub.utils.viewbindingdelegate.viewBinding
+import com.google.android.gms.ads.nativead.NativeAd
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.catch
@@ -52,6 +57,7 @@ class ExploreFragment : VMBaseFragment<ExploreViewModel>(R.layout.fragment_explo
     private val groups = linkedSetOf<String>()
     private var exploreFlowJob: Job? = null
     private var groupsMenu: SubMenu? = null
+    private var bottomNativeAd: NativeAd? = null
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         setSupportToolbar(binding.titleBar.toolbar)
@@ -60,6 +66,7 @@ class ExploreFragment : VMBaseFragment<ExploreViewModel>(R.layout.fragment_explo
         initGroupData()
         upExploreData()
         initLocalBookSource()
+        initBottomNativeAd()
     }
 
     override fun onCompatCreateOptionsMenu(menu: Menu) {
@@ -205,6 +212,28 @@ class ExploreFragment : VMBaseFragment<ExploreViewModel>(R.layout.fragment_explo
                 }
             })
         }
+    }
+
+    private fun initBottomNativeAd(){
+        var adId = ""
+        if (BuildConfig.DEBUG){
+            adId = "ca-app-pub-3940256099942544/2247696110"
+        }
+
+        AdMgr.requestNativeAd(requireContext(),adId,object : IAdmobRequestListener{
+            override fun onLoadSuccess(adObject: NativeAd) {
+                bottomNativeAd = adObject
+                AdMgr.populateNativeAdView(bottomNativeAd!!,AdNativeTemplateBinding.inflate(layoutInflater),binding.flAd)
+            }
+
+            override fun onLoadFailed(errorCode: Int, errorMsg: String) {}
+
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bottomNativeAd?.destroy()
     }
 
     fun compressExplore() {

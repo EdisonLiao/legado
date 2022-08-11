@@ -42,6 +42,7 @@ import com.edison.ebookpub.utils.observeEvent
 import com.edison.ebookpub.utils.setEdgeEffectColor
 import com.edison.ebookpub.utils.toastOnUi
 import com.edison.ebookpub.utils.viewbindingdelegate.viewBinding
+import com.google.android.gms.ads.MobileAds
 
 /**
  * 主界面
@@ -75,6 +76,8 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
             bottomNavigationView.setOnNavigationItemSelectedListener(this@MainActivity)
             bottomNavigationView.setOnNavigationItemReselectedListener(this@MainActivity)
         }
+
+        MobileAds.initialize(this) {}
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
